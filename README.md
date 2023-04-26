@@ -10,7 +10,7 @@ This project uses Node js, express, ejs, tailwind,..., etc, to serve the dashboa
 
 ## Installation
 
-Install my-project with npm
+Install project
 
 ```bash
   cd project
@@ -19,15 +19,15 @@ Install my-project with npm
 
 ## Run
 
-Install my-project with npm
+Run project
 
 ```bash
   npm run dev
 ```
 
-## Build css from tailwind cli run
+## Build css from tailwind cli
 
-Install my-project with npm
+Generate css
 
 ```bash
   npm run tailwind
