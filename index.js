@@ -1,10 +1,16 @@
 const express = require('express');
 const path = require('path');
+const { sendMail } = require('./controller/sendMail');
+const { login, validatLogineMiddleware, validateLogin } = require('./controller/login');
 const app = express();
+const cookieParser = require("cookie-parser")
+require('dotenv').config()
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+
 
 app.get('/', (req, res) => {
     res.render('index',);
@@ -39,6 +45,12 @@ app.get('/forgot-password', (req, res) => {
 app.get('/blank', (req, res) => {
     res.render('blank',);
 })
+app.get('/mail', validatLogineMiddleware, sendMail)
+
+app.get('/magic-link', login)
+
+app.get('/account', validateLogin)
+
 app.get('/*', (req, res) => {
     res.render('404',);
 })
