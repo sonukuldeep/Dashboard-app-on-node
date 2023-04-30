@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { sendMail } = require('./controller/sendMail')
-const { login, logout, validatLogineMiddleware, validateLogin } = require('./controller/login')
-const { auth } = require('express-openid-connect')
+const { login, logout, validatLogineMiddleware, validateLogin } = require('./controller/auth')
 const app = express();
 const cookieParser = require("cookie-parser")
 require('dotenv').config()
@@ -12,26 +11,11 @@ app.set('view engine', 'ejs');
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-// const config = {
-//     authRequired: process.env.AUTHREQUIRED,
-//     auth0Logout: process.env.AUTH0LOGOUT,
-//     secret: process.env.SECRET,
-//     baseURL: process.env.BASEURL,
-//     clientID: process.env.CLIENTID,
-//     issuerBaseURL: process.env.ISSUERBASEURL,
-// }
-//with is middleware set, all requset to /login and /logout are handled automatically
-// app.use(auth(config));
-
 app.get('/', (req, res) => {
     res.render('index',);
 })
 app.get('/forms', (req, res) => {
-    const userinfo = req.oidc.user
-    if (userinfo?.email === 'abc@gmail.com')
-        res.render('forms',);
-    else
-        res.status(400).send('unauthorised requset')
+    res.status(400).send('unauthorised requset')
 })
 app.get('/cards', (req, res) => {
     res.render('cards',);
