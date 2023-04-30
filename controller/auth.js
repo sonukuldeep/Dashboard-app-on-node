@@ -14,7 +14,7 @@ function login(req, res) {
     `
 
     mailFunction(msgTemplate)
-    res.status(200).send('check your email')
+    res.status(200).render('magic-link')
 }
 
 function validateLogin(req, res) {

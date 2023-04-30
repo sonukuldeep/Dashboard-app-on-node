@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.render('index',);
 })
 app.get('/forms', (req, res) => {
-    res.status(400).send('unauthorised requset')
+    res.render('forms')
 })
 app.get('/cards', (req, res) => {
     res.render('cards',);
