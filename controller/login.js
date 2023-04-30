@@ -6,7 +6,7 @@ function login(req, res) {
 
     const token = jwt.sign({
         email: process.env.MAIL
-    }, 'secret', { expiresIn: '10m' }); // numbers are interpreted as seconds. Other units:- '10m','1h','7 days' in quotes
+    }, 'secret', { expiresIn: '1h' }); // numbers are interpreted as seconds. Other units:- '10m','1h','7 days' in quotes
 
     const msgTemplate = `
     <p><b>Hi there</b></p>
@@ -24,8 +24,12 @@ function validateLogin(req, res) {
         res.status(status).send(error)
     }
     else if (email === process.env.MAIL) {
-        res.cookie("token", token).status(200).send("log in successful")
+        res.cookie("token", token).status(200).render("login-redirect")
     }
+}
+
+function logout(req, res) {
+    res.cookie("token", "").status(200).render("logout")
 }
 
 function validatLogineMiddleware(req, res, next) {
@@ -39,7 +43,7 @@ function validatLogineMiddleware(req, res, next) {
     }
 }
 
-module.exports = { login, validateLogin, validatLogineMiddleware }
+module.exports = { login, validateLogin, validatLogineMiddleware, logout }
 
 function validateHelper(token) {
     if (!token) {

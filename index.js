@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { sendMail } = require('./controller/sendMail')
-const { login, validatLogineMiddleware, validateLogin } = require('./controller/login')
+const { login, logout, validatLogineMiddleware, validateLogin } = require('./controller/login')
 const { auth } = require('express-openid-connect')
 const app = express();
 const cookieParser = require("cookie-parser")
@@ -12,16 +12,16 @@ app.set('view engine', 'ejs');
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-const config = {
-    authRequired: process.env.AUTHREQUIRED,
-    auth0Logout: process.env.AUTH0LOGOUT,
-    secret: process.env.SECRET,
-    baseURL: process.env.BASEURL,
-    clientID: process.env.CLIENTID,
-    issuerBaseURL: process.env.ISSUERBASEURL,
-}
+// const config = {
+//     authRequired: process.env.AUTHREQUIRED,
+//     auth0Logout: process.env.AUTH0LOGOUT,
+//     secret: process.env.SECRET,
+//     baseURL: process.env.BASEURL,
+//     clientID: process.env.CLIENTID,
+//     issuerBaseURL: process.env.ISSUERBASEURL,
+// }
 //with is middleware set, all requset to /login and /logout are handled automatically
-app.use(auth(config));
+// app.use(auth(config));
 
 app.get('/', (req, res) => {
     res.render('index',);
@@ -65,6 +65,7 @@ app.get('/mail', validatLogineMiddleware, sendMail)
 app.get('/magic-link', login)
 
 app.get('/account', validateLogin)
+app.get('/logout', logout)
 
 app.get('/*', (req, res) => {
     res.render('404',);
