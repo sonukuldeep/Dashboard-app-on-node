@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get('/', (req, res) => {
     res.render('index',);
 })
-app.get('/forms', (req, res) => {
+app.get('/forms', validatLogineMiddleware, (req, res) => {
     res.render('forms')
 })
 app.get('/cards', (req, res) => {
@@ -44,7 +44,14 @@ app.get('/forgot-password', (req, res) => {
 app.get('/blank', (req, res) => {
     res.render('blank',);
 })
-app.get('/mail', validatLogineMiddleware, sendMail)
+
+app.get('/privacy-policy', (req, res) => {
+    res.render('privacy-policy',);
+})
+
+app.get('/mail', (req, res) => {
+    res.render('mail')
+})
 
 app.get('/magic-link', login)
 

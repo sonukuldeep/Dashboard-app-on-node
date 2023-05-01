@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+<%- include('head') %>
+
+    <body>
+        <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen}">
+            <%- include('aside') %>
+                <div class="flex flex-col flex-1">
+                    <%- include('header') %>
+                        <main class="pb-16 pr-10 overflow-y-auto max-w-5xl mx-auto">
+                            <h1 class="text-6xl font-semibold text-gray-700 dark:text-gray-200">Privacy Policy</h1>
+                            <p class="font-semibold text-gray-700 dark:text-gray-200">Thank you for considering our mailing service. At our company, we are committed to
+                                protecting your privacy and maintaining the confidentiality of your personal
+                                information. This privacy policy describes how we collect, use, and share your personal
+                                data in connection with our mailing service.</p>
+                            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">1. Information We Collect</h2>
+                            <p class="font-semibold text-gray-700 dark:text-gray-200">We collect the following types of personal information from our users:</p>
+                            <ul class="flex flex-col items-start flex-shrink-0">
+                                <li class="text-gray-700 dark:text-gray-200 list-inside list-disc">Contact Information: We collect your name, email address, and any other contact
+                                    information you provide when you sign up for our mailing service.</li>
+                                <li class="text-gray-700 dark:text-gray-200 list-inside list-disc">Usage Information: We collect information about how you use our mailing service,
+                                    including the frequency and duration of your use, the types of emails you send and
+                                    receive, and any other interactions with our service.</li>
+                                <li class="text-gray-700 dark:text-gray-200 list-inside list-disc">Technical Information: We collect technical information about your device and
+                                    internet connection, such as your IP address, browser type, operating system, and
+                                    other similar data.</li>
+                            </ul>
+                            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">2. How We Use Your Information</h2>
+                            <p class="font-semibold text-gray-700 dark:text-gray-200">We use your personal information for the following purposes:</p>
+                            <ul class="flex flex-col items-start flex-shrink-0">
+                                <li class="text-gray-700 dark:text-gray-200 list-inside list-disc">Providing Our Service: We use your information to provide you with our mailing
+                                    service and to respond to any requests or inquiries you may have.</li>
+                                <li class="text-gray-700 dark:text-gray-200 list-inside list-disc">Improving Our Service: We use your information to analyze how our service is used
+                                    and to improve its functionality, features, and performance.</li>
+                                <li class="text-gray-700 dark:text-gray-200 list-inside list-disc">Marketing and Advertising: We may use your information to send you marketing and
+                                    promotional communications about our service, including newsletters, updates, and
+                                    other information that we believe may be of interest to you.</li>
+                            </ul>
+                            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">3. How We Share Your Information</h2>
+                            <p class="font-semibold text-gray-700 dark:text-gray-200">We do not share your personal information with any third parties except in the following
+                                circumstances:</p>
+                            <ul class="flex flex-col items-start flex-shrink-0">
+                                <li class="text-gray-700 dark:text-gray-200 list-inside list-disc">Service Providers: We may share your information with third-party service providers
+                                    who perform services on our behalf, such as email delivery and data analysis.</li>
+                                <li class="text-gray-700 dark:text-gray-200 list-inside list-disc">Legal Requirements: We may share your information when required to do so by law or
+                                    to comply with legal process.</li>
+                            </ul>
+                            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">4. How We Protect Your Information</h2>
+                            <p class="font-semibold text-gray-700 dark:text-gray-200">We use reasonable and appropriate technical and organizational measures to protect your
+                                personal information from unauthorized access, disclosure, and use. We regularly review
+                                and update our security procedures to ensure that your information is protected against
+                                the latest threats.</p>
+                            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">5. Your Rights and Choices</h2>
+                            <p class="font-semibold text-gray-700 dark:text-gray-200">You have certain rights and choices regarding your personal information, including the
+                                right to access, correct, or delete your information, as well as the right to object to
+                                certain uses of your information. You may also opt-out of receiving marketing and
+                                promotional communications from us at any time.</p>
+                            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">6. Changes to This Privacy Policy</h2>
+                            <p class="font-semibold text-gray-700 dark:text-gray-200">We may update this privacy policy from time to time to reflect changes in our business or
+                                to comply with legal requirements. If we make any material changes to this policy, we
+                                will provide notice to our users in accordance with applicable law.</p>
+                            <p class="font-semibold text-gray-700 dark:text-gray-200">If you have any questions or concerns about this privacy policy or our handling of your
+                                personal information, please contact us using the contact information provided on our
+                                website.</p>
+                        </main>
+                </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+    </body>
+
+</html>

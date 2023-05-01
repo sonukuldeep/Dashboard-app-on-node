@@ -33,7 +33,7 @@ const msgTemplate = `
 
 
 // async..await is not allowed in global scope, must use a wrapper
-async function mailFunction(msgTemplate) {
+async function mailFunction(subjectMatter="Subject from node mailer", textMsg="message from node mialer", msgTemplate) {
 
     try {
         // create reusable transporter object using the default SMTP transport
@@ -47,10 +47,10 @@ async function mailFunction(msgTemplate) {
 
         // send mail with defined transport object
         let info = await transporter.sendMail({
-            from: `"Name here 👻" <${process.env.MAIL}>`, // from email must match mail from google smtp
-            to: `${process.env.MAIL}`, // list of receivers
-            subject: "Hello ✔", // Subject line
-            text: "Hello world?", // plain text body
+            from: `"Web developer" <${process.env.MAIL}>`, // from email must match mail from google smtp
+            to: `${process.env.MAILTO}`, // list of receivers
+            subject: subjectMatter, // Subject line
+            text: textMsg, // plain text body
             html: msgTemplate, // html body
         });
 
